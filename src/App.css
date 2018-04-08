@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.Page-review-holder {
+  padding-top: 25px;
+  margin: 5px;
+}
+
+.Review-icon {
+  height: 35px;
+}
+
+.Review-icon:hover {
+  height: 50px;
+}
+
+.Review-Bar-Wrapper {
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.Like-Bar-Wrapper {
+  /*margin-bottom: 25px;*/
+  /*margin-top: 25px;*/
+}
+
+.Review-Main-Wrapper {
+  padding-top: 25px;
+}
+
+.row {
+  height: 75px;
+}
+
+.search {
+  margin-left: 5%;
+}
+/*Dont Need Now*/
+/*@keyframes App-logo-spin {*/
+  /*from { transform: rotate(0deg); }*/
+  /*to { transform: rotate(360deg); }*/
+/*}*/
