@@ -4,6 +4,7 @@ import './App.css';
 import ReviewBarComponent1 from './ReviewComponent1';
 import LikeDislikeComponent from './likeDislike.js';
 import { Segment } from 'semantic-ui-react';
+import SearchComponent from './SearchComponent';
 
 
 export default class PageReviewMain extends Component {
@@ -21,11 +22,25 @@ export default class PageReviewMain extends Component {
         const target = event.target;
         const value =  target.value;
         const name = target.name;
-        console.log("name",value);
+        console.log("name input",value);
         this.setState({
             collegeName: value
+        }, () => {
+            this.callCollegeSearch(value);
         });
     }
+
+    callCollegeSearch (searchTerm) {
+        const searchUrl = 'http://ec2-18-188-166-186.us-east-2.compute.amazonaws.com:8900/schools/search?searchTerm='+searchTerm;
+        fetch(searchUrl).then((response) => {
+            return response.json();
+        }).then((data) => {
+            console.log("DATA RECEIVED",data);
+        }).catch((error) => {
+            console.log("ERROR",error);
+        })
+    }
+
 
     handleSubmit (event) {
         console.log("Submit Called");
@@ -57,8 +72,9 @@ export default class PageReviewMain extends Component {
                             <Segment>
                                 <div className="row">
                                     <label id="collageName" className="col-sm-3 col-sm-form-label "> College / University Name </label>
-                                    <div className = "col-sm-6 search">
-                                        <input type="text" id = "collageName" className = "form-control" value={this.state.collegeName} onChange={this.handleNameInput}/>
+                                    <div className = "col-sm-6">
+                                        {/*<input type="text" id = "collageName" className = "form-control" value={this.state.collegeName} onChange={this.handleNameInput}/>*/}
+                                        <SearchComponent/>
                                     </div>
                                 </div>
                             </Segment>

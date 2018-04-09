@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Rating, List } from 'semantic-ui-react';
-import reviewIcon1 from './icons/emojis/1_b.svg';
-import reviewIcon2 from './icons/emojis/2.svg';
-import reviewIcon3 from './icons/emojis/3.svg';
-import reviewIcon4 from './icons/emojis/4_b.svg';
-import reviewIcon5 from './icons/emojis/5.svg';
 
 export default class ReviewBarComponent1 extends Component {
     constructor(props) {
@@ -39,6 +34,19 @@ export default class ReviewBarComponent1 extends Component {
         });
     }
 
+    onRateCb(event, dataObj) {
+        console.log("event",event.target);
+        console.log("event value", event.target ? event.target.value: undefined);
+        console.log("DATA",dataObj);
+    }
+
+    onMouseEnter(event, dataObj) {
+        const target = event.target;
+        console.log("mouse enter event",target);
+        // console.log("event value", event.target ? event.target.value: undefined);
+        console.log("mouse enter DATA",target.getAttribute('aria-posinset'));
+    }
+
     render () {
         return (
 
@@ -47,7 +55,7 @@ export default class ReviewBarComponent1 extends Component {
                 {this.props.field}
             </div>
             <div className = "col-sm-3" onClick={() => this.handleSelect(1)} >
-                <Rating maxRating={5} defaultRating={0} icon='star' size='massive' />
+                <Rating maxRating={5} defaultRating={0} icon='star' size='massive' onMouseOver={(event, dataObj) => {console.log("MOuseOver");this.onMouseEnter(event, dataObj)}} onRate={(event, dataObj) => {console.log("Called");this.onRateCb(event, dataObj)}} />
             </div>
             <div className = "col-sm-6">
                 {/*Mock selection Response Idiot*/}
@@ -56,19 +64,3 @@ export default class ReviewBarComponent1 extends Component {
         );
     }
 }
-
-// {/*<List horizontal>*/}
-// {/*<List.Item>*/}
-// {/*<List.Content as='a' floated='left'>*/}
-// {/*{this.props.field}*/}
-// {/*</List.Content>*/}
-// {/*</List.Item>*/}
-// {/*<List.Item>*/}
-// {/*<Rating maxRating={5} defaultRating={0} icon='star' size='massive' />*/}
-// {/*</List.Item>*/}
-// {/*<List.Item>*/}
-// {/*<List.Content>*/}
-// {/*<List.Header>Mock Selection Response List</List.Header>*/}
-// {/*</List.Content>*/}
-// {/*</List.Item>*/}
-// {/*</List>*/}

@@ -56,6 +56,13 @@
 .search {
   margin-left: 5%;
 }
+
+.like-mobile {
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+    margin-top: 5%;
+}
+
 /*Dont Need Now*/
 /*@keyframes App-logo-spin {*/
   /*from { transform: rotate(0deg); }*/
