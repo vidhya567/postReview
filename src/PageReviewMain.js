@@ -30,40 +30,14 @@ export default class PageReviewMain extends Component {
         });
     }
 
-    callCollegeSearch (searchTerm) {
-        const searchUrl = 'http://ec2-18-188-166-186.us-east-2.compute.amazonaws.com:8900/schools/search?searchTerm='+searchTerm;
-        fetch(searchUrl).then((response) => {
-            return response.json();
-        }).then((data) => {
-            console.log("DATA RECEIVED",data);
-        }).catch((error) => {
-            console.log("ERROR",error);
-        })
-    }
 
 
     handleSubmit (event) {
         console.log("Submit Called");
     }
 
-    getMajorList () {
-        console.log("Major List");
-        return(
-            <div className="form-group row">
-                    <label id="major" className="col-sm-3 col-sm-form-label"> Department / Major </label>
-                    <div className = "col-sm-9">
-                        <select className = "form-control" id = "major">
-                            <option>ECE</option>
-                            <option>CIVIL</option>
-                            <option>MECH</option>
-                        </select>
-                    </div>
-            </div>
-        )
-    }
-
     render () {
-        const majorList = this.getMajorList();
+        const setPlacementRating = this.props.setPlacementRating;
         return (
             <div className="Page-review-holder">
                 <div className = "container">
@@ -71,15 +45,15 @@ export default class PageReviewMain extends Component {
                         <Segment.Group  raised>
                             <Segment>
                                 <div className="row">
-                                    <label id="collageName" className="col-sm-3 col-sm-form-label "> College / University Name </label>
-                                    <div className = "col-sm-6">
+                                    <label id="collageName" className="col-sm-3 col-sm-form-label ">Name of College /University</label>
+                                    <div className = "col-sm-9">
                                         {/*<input type="text" id = "collageName" className = "form-control" value={this.state.collegeName} onChange={this.handleNameInput}/>*/}
                                         <SearchComponent/>
                                     </div>
                                 </div>
                             </Segment>
                             <Segment  >
-                                <ReviewBarComponent1 field = "Guidance in Getting Placed"/>
+                                <ReviewBarComponent1 cb={setPlacementRating} field = "Guidance in Getting Placed"/>
                             </Segment>
                             <Segment  >
                                 <ReviewBarComponent1 field = "Quality of Teaching"/>
@@ -100,9 +74,4 @@ export default class PageReviewMain extends Component {
         )
     }
 
-    // render () {
-    //     return (
-    //
-    //     )
-    // }
 }

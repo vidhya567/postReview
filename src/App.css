@@ -54,13 +54,17 @@
 }
 
 .search {
-  margin-left: 5%;
+  /*margin-left: 5%;*/
 }
 
 .like-mobile {
     margin-left: 10% !important;
     margin-right: 10% !important;
     margin-top: 5%;
+}
+
+.Search-Bar {
+  width: 100%;
 }
 
 /*Dont Need Now*/

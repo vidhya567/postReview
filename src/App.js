@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './icons/university.svg';
 import './App.css';
-import PageReviewMain from './PageReviewMain';
+import RatingsContainer from './containers/ratings';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Post a Review of your College/University </h1>
         </header>
-        <PageReviewMain/>
+        <RatingsContainer />
       </div>
     );
   }
