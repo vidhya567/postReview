@@ -3,6 +3,7 @@ import logo from './icons/university.svg';
 import './App.css';
 import RatingsContainer from './containers/ratings';
 
+
 class App extends Component {
   render() {
     return (
