@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../App.css';
 import { Rating, List } from 'semantic-ui-react';
 const Reactions  = [
     'Worst Experience',
@@ -10,32 +10,45 @@ const Reactions  = [
     'Awesome'
 ];
 
-export default class ReviewBarComponent1 extends Component {
+export default class ReviewBarComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             showResponse: false
         }
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
     }
 
-    onRateCb() {
+    onRateCb(event, dataObj) {
         const rating  = dataObj.rating;
         this.props.cb(rating);
     }
 
-    onMouseEnter() {
+    onMouseEnter(event) {
+        const target = event.target;
+        console.log("mouse enter",target.getAttribute('aria-posinset'));
+        const hoveredNumber = parseInt(target.getAttribute('aria-posinset'));
         this.setState({
-            showResponse: true
+            showResponse: true,
+            hoveredNumber: hoveredNumber
         });
     }
 
     onMouseLeave() {
         this.setState({
-            showResponse: true
+            showResponse: false
         });
+        console.log('mouseLeave');
     }
 
     render () {
+        let reaction = null;
+        if (this.state.showResponse && this.state.hoveredNumber) {
+            reaction = (<div>
+                            {Reactions[this.state.hoveredNumber-1]}
+                       </div>);
+        }
         return (
 
         <div className = "row">
@@ -43,10 +56,10 @@ export default class ReviewBarComponent1 extends Component {
                 {this.props.field}
             </div>
             <div className = "col-sm-3">
-                <Rating maxRating={5} defaultRating={0} icon='star' size='massive' onMouseOver={(event, dataObj) => {console.log("MOuseOver");this.onMouseEnter(event, dataObj)}} onRate={(event, dataObj) => {console.log("Called");this.onRateCb(event, dataObj)}} />
+                <Rating maxRating={5} defaultRating={0} icon='star' size='massive' onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onRate={(event, dataObj) => {console.log("Called");this.onRateCb(event, dataObj)}} />
             </div>
             <div className = "col-sm-6">
-                {/*Mock selection Response Idiot*/}
+                {reaction}
             </div>
         </div>
         );

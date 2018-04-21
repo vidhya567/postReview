@@ -7,7 +7,17 @@ import * as FirestoreUtil from '../util/FirestoreUtil';
 
 
 export default class SubmitComponent extends Component {
-    state = { openSignInModal: false }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            openSignInModal: false
+        };
+        this.handleButtonClick = this.handleButtonClick.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+        this.postReviewToDB = this.postReviewToDB.bind(this);
+    }
+
     handleButtonClick()  {
         // Validation Should Be Done Here
         if (this.props.signedIn && this.props.userInfo) {
@@ -17,14 +27,14 @@ export default class SubmitComponent extends Component {
         } else {
             this.setState({
                 openSignInModal: true
-            })
+            });
         }
     }
 
     handleClose() {
         this.setState({
             openSignInModal: false
-        })
+        });
     }
 
 
@@ -40,12 +50,12 @@ export default class SubmitComponent extends Component {
         const {ratings,schoolData, userSignedIn, userSignedOut, signedIn, userInfo} = this.props;
         return (
             <div>
-                <Button size='medium'   positive onClick={this.handleButtonClick}>Post Anonymously</Button>
-                <Button size='medium'   basic color='green' onClick={this.handleButtonClick}>Post Publicly</Button>
-                <Modal  open={openSignInModal} onClose={() => this.handleClose} size='tiny'>
+                <Button size='medium' positive onClick={this.handleButtonClick}>Post Anonymously</Button>
+                <Button size='medium' basic color='green' onClick={this.handleButtonClick}>Post Publicly</Button>
+                <Modal  open={openSignInModal} onClose={this.handleClose} size='tiny'>
                     <Modal.Header>Please Sign In</Modal.Header>
                     <Modal.Content>
-                        <SignInScreen ratings={ratings} schoolData={schoolData} sucessCb = {this.postReviewToDB} userSignedIn={userSignedIn} userSignedOut={userSignedOut} signedIn={signedIn} userInfo={userInfo}/>
+                        <SignInScreen ratings={ratings} schoolData={schoolData} sucessCb={this.postReviewToDB} userSignedIn={userSignedIn} userSignedOut={userSignedOut} signedIn={signedIn} userInfo={userInfo}/>
                     </Modal.Content>
                 </Modal>
             </div>);

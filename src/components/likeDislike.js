@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import like1 from './icons/likes/like1.svg';
-import like2 from './icons/likes/like2.svg';
-import dislike1 from './icons/likes/dislike1.svg';
-import dislike2 from './icons/likes/dislike2.svg';
+import like1 from '../icons/likes/like1.svg';
+import like2 from '../icons/likes/like2.svg';
+import dislike1 from '../icons/likes/dislike1.svg';
+import dislike2 from '../icons/likes/dislike2.svg';
 
 
 export default class LikeDislikeComponent extends Component {

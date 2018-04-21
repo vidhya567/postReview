@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import ReviewBarComponent from './ReviewComponent';
 import LikeDislikeComponent from './likeDislike.js';
 import { Segment } from 'semantic-ui-react';

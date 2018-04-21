@@ -7,6 +7,9 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import firebase from "firebase/index";
+import 'firebase/auth';
+import 'firebase/database';
+import 'firebase/firestore';
 
 // Configure Firebase.
 var config = {

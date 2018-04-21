@@ -16,7 +16,7 @@ export default class SignInScreen extends React.Component {
     // Listen to the Firebase Auth state and set the local state.
     componentDidMount() {
         const {ratings, schoolData} = this.props;
-        console.log("props",sucessCb, ratings, schoolData);
+        console.log("props", ratings, schoolData);
         this.unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.props.userSignedIn(user);
