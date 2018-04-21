@@ -5,6 +5,7 @@ import LikeDislikeComponent from './likeDislike.js';
 import { Segment } from 'semantic-ui-react';
 import SearchComponent from './SearchComponent';
 import SubmitComponent from './SubmitComponent';
+import {userSignedIn} from "../actions";
 
 
 export default class PageReviewMain extends Component {
@@ -35,11 +36,21 @@ export default class PageReviewMain extends Component {
         return null;
     }
 
+    getSignedIn () {
+        return this.props.appState['userSignedIn'];
+    }
+
+    getUserInfo () {
+        return this.props.appState['userInfo'];
+    }
+
     render () {
-        const {setSchool, setPlacementRating, setTeachingRating, setFacilitiesRating, setSportsRating, setOverallRating, setRecommendation}= this.props;
+    const {setSchool, setPlacementRating, setTeachingRating, setFacilitiesRating, setSportsRating, setOverallRating, setRecommendation, userSignedIn, userSignedOut}= this.props;
         const submitStyle = {'textAlign': 'left'};
         const ratings = this.getRatingsFromApp();
         const schoolData = this.getSchoolData();
+        const signedIn = this.getSignedIn();
+        const userInfo = this.getUserInfo();
         return (
             <div className="Page-review-holder">
                 <div className = "container">
@@ -71,7 +82,14 @@ export default class PageReviewMain extends Component {
                                 <LikeDislikeComponent cb={setRecommendation} field = "Would you recommend it ?"/>
                             </Segment>
                             <Segment style={submitStyle}>
-                                <SubmitComponent ratings={ratings} schoolData={schoolData}/>
+                                <SubmitComponent
+                                    ratings={ratings}
+                                    schoolData={schoolData}
+                                    userSignedIn={userSignedIn}
+                                    userSignedOut={userSignedOut}
+                                    signedIn={signedIn}
+                                    userInfo={userInfo}
+                                />
                             </Segment>
                         </Segment.Group>
                 </div>

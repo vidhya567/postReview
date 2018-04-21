@@ -7,56 +7,45 @@ import * as FirestoreUtil from '../util/FirestoreUtil';
 
 
 export default class SubmitComponent extends Component {
-    state = { open: false }
+    state = { openSignInModal: false }
     handleButtonClick()  {
-        this.setState({
-           open: true
-        })
+        // Validation Should Be Done Here
+        if (this.props.signedIn && this.props.userInfo) {
+            const userId = this.props.userInfo;
+            const {ratings,schoolData} = this.props;
+            this.postReviewToDB(userId, ratings, schoolData);
+        } else {
+            this.setState({
+                openSignInModal: true
+            })
+        }
     }
 
     handleClose() {
         this.setState({
-            open: false
+            openSignInModal: false
         })
     }
 
-    onSucessSignInCB(user, ratings, schoolData) {
-            console.log("Hey We got The CB TO WORK", user, ratings);
-            const userId = user.uid;
-            this.postReviewToDB(userId, ratings, schoolData);
-    }
 
     postReviewToDB(userId, ratings, schoolData) {
-        // if (userId && ratings) {
-        //     axios.post('post-review',{
-        //         userId : userId,
-        //         ratings: ratings
-        //     }).then((response) => {
-        //         console.log("Got Response for Post Review", response);
-        //     }).catch((err) => {
-        //         console.log("Err For Post Review", response);
-        //     });
-        // }
         FirestoreUtil.addReviewToReviewsCollection(userId, ratings, schoolData).then((docRef) => {
             FirestoreUtil.addReviewToUsersCollection(userId, ratings, docRef.id, schoolData.schoolID);
         })
-
     }
 
 
     render() {
-        const open = this.state.open;
-        const {ratings,schoolData} = this.props;
+        const openSignInModal = this.state.openSignInModal;
+        const {ratings,schoolData, userSignedIn, userSignedOut, signedIn, userInfo} = this.props;
         return (
             <div>
-                {/*<Button size='medium'   basic color='green'>Post Publicly</Button>*/}
-                {/*<Modal  open={open} onClose={() => this.handleClose}>*/}
-                    {/*<SignInScreen/>*/}
-                {/*</Modal>*/}
-                <Modal trigger={<Button size='medium'   positive>Post Anonymously</Button>} size='tiny'>
+                <Button size='medium'   positive onClick={this.handleButtonClick}>Post Anonymously</Button>
+                <Button size='medium'   basic color='green' onClick={this.handleButtonClick}>Post Publicly</Button>
+                <Modal  open={openSignInModal} onClose={() => this.handleClose} size='tiny'>
                     <Modal.Header>Please Sign In</Modal.Header>
                     <Modal.Content>
-                        <SignInScreen ratings={ratings} schoolData={schoolData} sucessCb = {this.onSucessSignInCB}/>
+                        <SignInScreen ratings={ratings} schoolData={schoolData} sucessCb = {this.postReviewToDB} userSignedIn={userSignedIn} userSignedOut={userSignedOut} signedIn={signedIn} userInfo={userInfo}/>
                     </Modal.Content>
                 </Modal>
             </div>);

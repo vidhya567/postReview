@@ -45,9 +45,21 @@ const ratings = (state = {} ,action) => {
             newState['schoolData'] = action.schoolData;
             return newState;
         }
+        case 'USER_SIGNED_IN': {
+            console.log("user sign in reducing");
+            const newState = Object.assign({},state);
+            newState['userSignedIn'] = true;
+            newState['userInfo'] = action.userInfo;
+            return newState;
+        }
+        case 'USER_SIGNED_OUT': {
+            console.log("user sign out reducing");
+            const newState = Object.assign({},state);
+            newState['userSignedIn'] = false;
+            return newState;
+        }
         default:
             return state;
-
     }
 }
 

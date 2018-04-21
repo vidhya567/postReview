@@ -32,3 +32,12 @@ export const setRecommendation = bool => ({
     type: 'SET_RECOMMENDATION',
     bool
 });
+
+export const userSignedIn = userInfo => ({
+    type: 'USER_SIGNED_IN',
+    userInfo: userInfo
+});
+
+export const userSignedOut = () => ({
+    type: 'USER_SIGNED_OUT',
+});

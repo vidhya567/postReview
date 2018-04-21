@@ -14,25 +14,25 @@ export default class ReviewBarComponent1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show
+            showResponse: false
         }
     }
 
-    onRateCb(event, dataObj) {
-        console.log("event",event.target);
-        console.log("event value", event.target ? event.target.value: undefined);
-        console.log("DATA",dataObj);
+    onRateCb() {
         const rating  = dataObj.rating;
         this.props.cb(rating);
     }
 
-    onMouseEnter(event, dataObj) {
-        const reviewNumber = parseInt(event.target.getAttribute('aria-posinset'));
-        console.log("mouse enter DATA", reviewNumber);
+    onMouseEnter() {
+        this.setState({
+            showResponse: true
+        });
     }
 
-    onMouseLeave(event) {
-
+    onMouseLeave() {
+        this.setState({
+            showResponse: true
+        });
     }
 
     render () {
