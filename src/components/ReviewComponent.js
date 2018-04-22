@@ -27,7 +27,6 @@ export default class ReviewBarComponent extends Component {
 
     onMouseEnter(event) {
         const target = event.target;
-        console.log("mouse enter",target.getAttribute('aria-posinset'));
         const hoveredNumber = parseInt(target.getAttribute('aria-posinset'));
         this.setState({
             showResponse: true,
@@ -52,16 +51,18 @@ export default class ReviewBarComponent extends Component {
         return (
 
         <div className = "row">
-            <div className = "col-sm-3">
+            <div className = "col-sm-3 Review-Labels">
                 {this.props.field}
             </div>
             <div className = "col-sm-3">
                 <Rating maxRating={5} defaultRating={0} icon='star' size='massive' onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onRate={(event, dataObj) => {console.log("Called");this.onRateCb(event, dataObj)}} />
             </div>
-            <div className = "col-sm-6">
+            <div className = "col-sm-1 Reaction-Label ">
                 {reaction}
             </div>
         </div>
         );
     }
 }
+
+//offset-md-3

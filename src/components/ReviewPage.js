@@ -57,7 +57,7 @@ export default class PageReviewMain extends Component {
                         <Segment.Group  raised>
                             <Segment>
                                 <div className="row">
-                                    <label id="collageName" className="col-sm-3 col-sm-form-label ">Name of College /University</label>
+                                    <label id="collageName" className="col-sm-3 col-sm-form-label Review-Labels">Name of College /University</label>
                                     <div className = "col-sm-9">
                                         <SearchComponent cb={setSchool} />
                                     </div>
@@ -76,7 +76,7 @@ export default class PageReviewMain extends Component {
                                 <ReviewBarComponent cb={setSportsRating} field = "Importance for Sports"/>
                             </Segment>
                             <Segment  >
-                                <ReviewBarComponent cb={setOverallRating} field = "Overall Satisfaction in education provided"/>
+                                <ReviewBarComponent cb={setOverallRating} field = "Overall Satisfaction"/>
                             </Segment>
                             <Segment  >
                                 <LikeDislikeComponent cb={setRecommendation} field = "Would you recommend it ?"/>

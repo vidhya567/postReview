@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'PT Sans', sans-serif;
 }
 
 .App-logo {
@@ -66,6 +67,15 @@
 
 .Search-Bar {
   width: 100%;
+}
+
+.Review-Labels {
+  font-size: 1.25rem;
+}
+
+.Reaction-Label {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 1.25rem;
 }
 
 /*Dont Need Now*/
