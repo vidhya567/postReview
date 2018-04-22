@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './icons/university.svg';
 import './App.css';
 import RatingsContainer from './containers/ratings';
-import HeaderComponent from './components/header/HeaderComponent';
+import HeaderContainer from './containers/headerContainer';
 
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
           {/*<img src={logo} className="App-logo" alt="logo" />*/}
           {/*<h1 className="App-title">Post a Review of your College or University </h1>*/}
         {/*</header>*/}
-        <HeaderComponent/>
+        <HeaderContainer/>
         <RatingsContainer />
       </div>
     );

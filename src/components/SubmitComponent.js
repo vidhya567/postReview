@@ -55,7 +55,7 @@ export default class SubmitComponent extends Component {
                 <Modal  open={openSignInModal} onClose={this.handleClose} size='tiny'>
                     <Modal.Header>Please Sign In</Modal.Header>
                     <Modal.Content>
-                        <SignInScreen ratings={ratings} schoolData={schoolData} sucessCb={this.postReviewToDB} userSignedIn={userSignedIn} userSignedOut={userSignedOut} signedIn={signedIn} userInfo={userInfo}/>
+                        <SignInScreen referrer="submit" ratings={ratings} schoolData={schoolData} sucessCb={this.postReviewToDB} userSignedIn={userSignedIn} userSignedOut={userSignedOut} signedIn={signedIn} userInfo={userInfo}/>
                     </Modal.Content>
                 </Modal>
             </div>);

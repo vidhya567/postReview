@@ -29,10 +29,11 @@
 
 .Right-Header {
   float: right;
+  color: black;
 }
 
 .New-Header {
-  background-color: #d4d4d5;
+  background-color: white;
   height: 50px;
   color: white!important;
   padding: 0.5%!important;

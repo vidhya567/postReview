@@ -39,7 +39,7 @@ export default class LikeDislikeComponent extends Component {
          return (
             <div className = "Like-Bar-Wrapper">
                 <div className = "row">
-                    <div className = "col-sm-3">
+                    <div className = "col-sm-3 Review-Labels">
                         {this.props.field}
                     </div>
                     <div className = "col-sm-3">

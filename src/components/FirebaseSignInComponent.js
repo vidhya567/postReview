@@ -20,7 +20,12 @@ export default class SignInScreen extends React.Component {
         this.unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.props.userSignedIn(user);
-                this.props.sucessCb(user.uid, ratings, schoolData);
+                if (this.props.referrer === 'header') {
+                    this.props.sucessCb();
+                }
+                if (this.props.referrer === 'submit') {
+                    this.props.sucessCb(user.uid, ratings, schoolData);
+                }
             } else {
                 this.props.userSignedOut();
             }
