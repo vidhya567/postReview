@@ -15,12 +15,46 @@
   color: white;
 }
 
+.Header-Wrapper {
+  margin:0 1%;
+}
+
+.Left-Header {
+  float: left;
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  color: black;
+  font-size: 2rem;
+}
+
+.Right-Header {
+  float: right;
+}
+
+.New-Header {
+  background-color: #d4d4d5;
+  height: 50px;
+  color: white!important;
+  padding: 0.5%!important;
+}
+
+.Header-Style {
+  color: white!important;
+  font-size: 1.25rem!important;
+}
+
 .App-title {
   font-size: 1.5em;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.Header-Logo {
+  height: 45px;
+  padding-bottom: 8px;
+  padding-left: 7px;
 }
 
 .Page-review-holder {
