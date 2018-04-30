@@ -3,9 +3,10 @@ const firebase = require("firebase");
 export function addReviewToReviewsCollection (userId, ratings, schoolData) {
     const db = firebase.firestore();
     const schoolId = schoolData.schoolID; //Coming From MYSQL DB
-    return db.collection('reviews').doc(schoolId).collection('schoolReviews').add({
+    return db.collection('reviews').add({
         ratings: ratings,
-        userId: userId
+        userId: userId,
+        schoolId: schoolId
     });
 }
 

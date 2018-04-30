@@ -62,19 +62,18 @@ export default class HeaderComponent extends Component {
         const userSpecificSection = this.renderUserSpecificSection();
         return(
             <div className="New-Header">
-            <div className="Header-Wrapper">
-                <Header className="Header-Style" as='h2'>
-                    <div className='Left-Header'>
-                        <span>Nyanotaya</span>
-                        <img src={univLogo} className='Header-Logo' alt="logo" />
-                    </div>
-                    <div className='Right-Header'>
-                        {userSpecificSection}
-                    </div>
-                </Header>
+                <div className="Header-Wrapper">
+                    <Header className="Header-Style" as='h2'>
+                        <div className='Left-Header'>
+                            <span>Nyanotaya</span>
+                            <img src={univLogo} className='Header-Logo' alt="logo" />
+                        </div>
+                        <div className='Right-Header'>
+                            {userSpecificSection}
+                        </div>
+                    </Header>
+                </div>
             </div>
-            </div>
-
         );
     }
 }
