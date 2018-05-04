@@ -49,14 +49,11 @@ export default class ReviewBarComponent extends Component {
                        </div>);
         }
         return (<div className = "row">
-                    <div className = "col-sm-3 Review-Labels">
+                    <div className = "col-sm-5 Review-Labels">
                         {this.props.field}
                     </div>
-                    <div className = "col-sm-3">
+                    <div className = "col-sm-7">
                         <Rating maxRating={5} defaultRating={0} icon='star' size='massive' onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onRate={(event, dataObj) => {console.log("Called");this.onRateCb(event, dataObj)}} />
-                    </div>
-                    <div className = "col-sm-1 Reaction-Label ">
-                        {reaction}
                     </div>
                 </div>);
     }

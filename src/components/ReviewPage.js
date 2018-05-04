@@ -54,31 +54,31 @@ export default class PageReviewMain extends Component {
         return (
             <div className="Page-review-holder">
                 <div className = "container">
-                        <Segment.Group  raised>
-                            <Segment>
-                                <div className="row">
-                                    <label id="collageName" className="col-sm-3 col-sm-form-label Review-Labels">Name of College /University</label>
-                                    <div className = "col-sm-9">
-                                        <SearchComponent cb={setSchool} />
-                                    </div>
-                                </div>
+                        <Segment.Group  raised compact>
+                            {/*<Segment>*/}
+                                {/*<div className="row">*/}
+                                    {/*<label id="collageName" className="col-sm-3 col-sm-form-label Review-Labels">Name of College /University</label>*/}
+                                    {/*<div className = "col-sm-9">*/}
+                                        {/*<SearchComponent cb={setSchool} />*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
+                            {/*</Segment>*/}
+                            <Segment compact >
+                                <ReviewBarComponent cb={setPlacementRating} field = "Guidance Placement"/>
                             </Segment>
-                            <Segment  >
-                                <ReviewBarComponent cb={setPlacementRating} field = "Guidance in Getting Placed"/>
-                            </Segment>
-                            <Segment  >
+                            <Segment compact >
                                 <ReviewBarComponent cb={setTeachingRating} field = "Quality of Teaching"/>
                             </Segment>
-                            <Segment  >
-                                <ReviewBarComponent cb={setFacilitiesRating} field = "Labs and Other Facilities"/>
+                            <Segment compact >
+                                <ReviewBarComponent cb={setFacilitiesRating} field = "Labs and Facilities"/>
                             </Segment>
-                            <Segment  >
+                            <Segment compact >
                                 <ReviewBarComponent cb={setSportsRating} field = "Importance for Sports"/>
                             </Segment>
-                            <Segment  >
+                            <Segment compact >
                                 <ReviewBarComponent cb={setOverallRating} field = "Overall Satisfaction"/>
                             </Segment>
-                            <Segment  >
+                            <Segment compact >
                                 <LikeDislikeComponent cb={setRecommendation} field = "Would you recommend it ?"/>
                             </Segment>
                             <Segment style={submitStyle}>

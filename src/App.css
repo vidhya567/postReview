@@ -59,8 +59,14 @@
 }
 
 .Page-review-holder {
-  padding-top: 25px;
-  margin: 5px;
+  /*padding-top: 25px;*/
+  margin: auto;
+  width: 500px;
+}
+
+.Review-Modal-Wrapper {
+  height: 550px;
+  width: 500px;
 }
 
 .Review-icon {
@@ -105,7 +111,8 @@
 }
 
 .Review-Labels {
-  font-size: 1.25rem;
+  /*font-size: 1.25rem;*/
+  text-align: left;
 }
 
 .Reaction-Label {
