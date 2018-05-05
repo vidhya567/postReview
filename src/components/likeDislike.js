@@ -39,15 +39,15 @@ export default class LikeDislikeComponent extends Component {
          return (
             <div className = "Like-Bar-Wrapper">
                 <div className = "row">
-                    <div className = "col-sm-3 Review-Labels">
+                    <div className = "col-sm-5 Review-Labels">
                         {this.props.field}
                     </div>
-                    <div className = "col-sm-3">
+                    <div className = "col-sm-5 offset-1">
                         <div className = " like-mobile row">
-                            <div className = "col-6" onClick={() => this.handleLike()} >
+                            <div className = "col-4" onClick={() => this.handleLike()} >
                                 <img src={like} className="Review-icon" alt="like"/>
                             </div>
-                            <div className = "col-6" onClick={() => this.handleDislike()}>
+                            <div className = "col-4" onClick={() => this.handleDislike()}>
                                 <img src={dislike} className="Review-icon" alt="dislike"/>
                             </div>
                         </div>
